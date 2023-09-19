@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Navbar } from "../component/navbar"
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 import "../../styles/home.css";
 
@@ -8,15 +8,22 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="text-center">
+		<div className="wrapper text-center mt-3 py-3">
 
-			<Navbar />
-
-			<h1>INSERT YOUR USERNAME!</h1>
+			<h1 className="mt-4">INSERT YOUR USERNAME!</h1>
 			
-			<span> 
-				<input className="text-center w-50 border rounded-3" placeholder="Write your username (agenda_slug)" onChange={(e) => store.setUser(e.target.value)}></input>
+			<span className="mt-5"> 
+				<input className="text-center w-50 border rounded-3" placeholder="Write your username (agenda_slug)" onChange={(event) => actions.setUser(event.target.value)}></input>
 			</span>
+
+			<br/>
+
+			
+			<Link to="/contacts">
+				<button className="btn btn-success mt-2"> 
+					GET CONTACTS
+				</button>
+			</Link>
 
 			
 		</div>

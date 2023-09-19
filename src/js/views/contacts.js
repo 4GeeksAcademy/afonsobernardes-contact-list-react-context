@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "../component/navbar"
 
 import { Context } from "../store/appContext";
 import { ContactCard } from "../component/contactCard";
@@ -10,20 +11,20 @@ export const Contacts = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container-fluid mx-auto text-center my-5">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<ContactCard contact={item}/>
-					);
-				})}
-			</ul>
+		<div className="container-fluid wrapper w-100 px-0">
+			<Navbar />
 
-			<br />
+			<div className="container-fluid mx-auto text-center">
 
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+				<h1>{store.currentUser}</h1>
+
+				<br />
+
+				<Link to="/">
+					<button className="btn btn-primary">Back home</button>
+				</Link>
+			</div>
 		</div>
+		
 	);
 };
