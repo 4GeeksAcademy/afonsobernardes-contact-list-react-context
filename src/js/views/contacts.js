@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { ContactCard } from "../component/contactCard";
 
-import "../../styles/demo.css";
+import "../../styles/contacts.css";
 
 export const Contacts = () => {
 	const { store, actions } = useContext(Context);
