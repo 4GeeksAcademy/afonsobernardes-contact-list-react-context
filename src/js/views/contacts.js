@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../component/navbar"
 
@@ -21,12 +21,12 @@ export const Contacts = () => {
 				<br />
 				<div> 
 					{
-						store.currentUser ?
+						(store.currentUser in store.agendas) ?
 							store.contacts.map((item, idx) => {
 								return ContactCard(item);
 							})
 							:
-							<h3>Nothing to display! Select a user to display their contacts.</h3>
+							<h3>Nothing to display! Select a valid user to display their contacts.</h3>
 
 					}
 				</div>

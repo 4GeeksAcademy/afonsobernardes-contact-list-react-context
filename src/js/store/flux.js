@@ -24,6 +24,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(response => response.json())
 				.then(contactList => setStore(  {"contacts": [...contactList]}  ));
 			},
+
+			// Add new contact to currentUser's contacts.
 		}
 	};
 };
