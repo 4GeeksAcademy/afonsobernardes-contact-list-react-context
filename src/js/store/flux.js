@@ -19,9 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			// Load contacts for current user.
-			loadContacts: () => {
+			loadContacts: (currentUser) => {
 				fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${currentUser}`)
-				.then(response => response.jason())
+				.then(response => response.json())
 				.then(contactList => setStore( { 'contacts' : contactList } ));
 			},
 		}

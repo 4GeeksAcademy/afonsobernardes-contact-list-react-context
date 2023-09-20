@@ -1,3 +1,7 @@
 div .wrapper {
     height: 100%;
 }
+
+input {
+    width: 50%;
+}

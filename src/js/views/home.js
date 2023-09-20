@@ -13,7 +13,7 @@ export const Home = () => {
 			<h1 className="mt-4">INSERT YOUR USERNAME!</h1>
 			
 			<span className="mt-5"> 
-				<input className="text-center w-50 border rounded-3" placeholder="Write your username (agenda_slug)" onChange={(event) => actions.setUser(event.target.value)}></input>
+				<input className="text-center border rounded-3" value={store.currentUser ? store.currentUser : ""} placeholder="Insert username (agenda_slug)." onChange={(event) => actions.setUser(event.target.value)}></input>
 			</span>
 
 			<br/>
