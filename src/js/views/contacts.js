@@ -19,20 +19,20 @@ export const Contacts = () => {
 				<h2>{store.currentUser ? `Current user: ${store.currentUser}` : "No user selected."}</h2>
 
 				<br />
-				<ul>
+				<div> 
 					{
-						store.contacts.map((item, index) => {
-							console.log(item)
-							return (
-								<li>
-									<ContactCard fullName={item.full_name} email={item.email} address={item.address} phone={item.phone} />
-								</li>
-							);
-						})
+						store.currentUser ?
+							store.contacts.map((item, idx) => {
+								return ContactCard(item);
+							})
+							:
+							<h3>Nothing to display! Select a user to display their contacts.</h3>
+
 					}
-				</ul>
+				</div>
+
 				<Link to="/">
-					<button className="btn btn-primary">Back home</button>
+					<button className="btn btn-primary mt-3">Back home</button>
 				</Link>
 			</div>
 		</div>

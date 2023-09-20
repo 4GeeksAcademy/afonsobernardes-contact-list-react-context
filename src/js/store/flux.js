@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadAgendas: () => {
 				fetch("https://playground.4geeks.com/apis/fake/contact/agenda")
 				.then(response => response.json())
-				.then(users => setStore( { 'agendas': users } ));
+				.then(users => setStore( { "agendas": users } ));
 			},
 
 			setUser: (user) => {
@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadContacts: (currentUser) => {
 				fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${currentUser}`)
 				.then(response => response.json())
-				.then(contactList => setStore( { 'contacts' : contactList } ));
+				.then(contactList => setStore(  {"contacts": [...contactList]}  ));
 			},
 		}
 	};
