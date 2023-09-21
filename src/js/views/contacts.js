@@ -16,7 +16,7 @@ export const Contacts = () => {
 
 			<div className="container-fluid mx-auto text-center">
 
-				<h2>{store.currentUser ? `Current user: ${store.currentUser}` : "No user selected."}</h2>
+				<h2>{store.currentUser ? `${store.currentUser} contacts` : "No user selected."}</h2>
 
 				<br />
 				<div> 
@@ -27,7 +27,6 @@ export const Contacts = () => {
 							})
 							:
 							<h3>Nothing to display! Select a valid user to display their contacts.</h3>
-
 					}
 				</div>
 

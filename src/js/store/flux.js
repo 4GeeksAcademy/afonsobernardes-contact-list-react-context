@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			setUser: (user) => {
 				setStore( {"currentUser": user} );
+				getActions().loadContacts(user)
 			},
 
 			// Load contacts for current user.
@@ -26,6 +27,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			// Add new contact to currentUser's contacts.
+			addContact: (newContact) => {
+				fetch(`https://playground.4geeks.com/apis/fake/contact`, 
+				{
+					method: "POST",
+					body: JSON.stringify({
+						"full_name": newContact.fullName,
+                    	"email": newContact.email,
+                      	"agenda_slug": newContact.user,
+                      	"address": newContact.address,
+                      	"phone": newContact.phone
+					}),
+					headers: {
+					"Content-Type": "application/json"
+      			}
+				});
+			},
 		}
 	};
 };
