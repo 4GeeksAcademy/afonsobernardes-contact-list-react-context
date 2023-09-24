@@ -30,7 +30,7 @@ export const ContactCard = (info, index) => {
 
 				<div className="d-flex justify-space-between">
 					<div className="btn opacity-50"> <FontAwesomeIcon className="me-1" icon={faPencil} /> </div>
-					<div className="btn opacity-50" onClick={() => actions.deleteContact(info.id)}> <FontAwesomeIcon className="me-1" icon={faTrash} /> </div>
+					<div className="btn opacity-50" onClick={handleDelete}> <FontAwesomeIcon className="me-1" icon={faTrash} /> </div>
 				</div>
 			</div>
 		</a>)

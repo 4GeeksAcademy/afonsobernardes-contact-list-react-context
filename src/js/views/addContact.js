@@ -15,7 +15,7 @@ export const AddContact = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})
-        navigate("/contacts")
+        navigate("./contacts")
     }
 
     return (
@@ -45,7 +45,10 @@ export const AddContact = () => {
                         <input type="text" className="form-control" onChange={(e) => setAddress(e.target.value)} placeholder="Enter your physical address." id="physicalAddress" />
                     </div>
 
-                    <button type="submit" className="btn btn-primary w-100" onSubmit={actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})}>Save</button>
+                    
+                    <button type="submit" className="btn btn-primary w-100" onSubmit={handleSubmit}>Save</button>
+                    
+                    
                     
                 </form>
             </div>
