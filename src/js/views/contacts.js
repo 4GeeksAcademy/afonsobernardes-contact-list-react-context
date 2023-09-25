@@ -23,7 +23,7 @@ export const Contacts = () => {
 					{
 						(store.agendas.includes(store.currentUser)) ?
 							store.contacts.map((item, idx) => {
-								return ContactCard(item, idx);
+								return <ContactCard key={idx} info={item} />;
 							})
 							:
 							<h3>Nothing to display! Select a valid user to display their contacts.</h3>

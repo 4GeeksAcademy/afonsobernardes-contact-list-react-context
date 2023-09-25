@@ -42,8 +42,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-				.then(getActions().loadContacts(getStore().currentUser))
-				.then(console.log(getStore().contacts));
+				.then(response => response.json())
+				.then(data => {
+					getActions().loadContacts(getStore().currentUser)
+				})
 			},
 
 			// Delete a contact from user's list.
@@ -54,9 +56,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-				.then(getActions().loadContacts(getStore().currentUser))
-				.then(console.log(getStore().contacts))
-				
+				.then(response => response.json())
+				.then(data => {
+					getActions().loadContacts(getStore().currentUser)
+				})				
+			},
+
+			// Edit a contact from user's list.
+			editContact: (contactId) => {
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+				.then(response => response.json())
+				.then(data => {
+					getActions().loadContacts(getStore().currentUser)
+				})				
 			},
 		}
 	};
