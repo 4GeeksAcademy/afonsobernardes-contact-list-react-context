@@ -2,6 +2,13 @@ div .wrapper {
     height: 100%;
 }
 
+header {
+    background-image: linear-gradient(to bottom, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 input {
     width: 40%;
 }
