@@ -63,9 +63,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			// Edit a contact from user's list.
-			editContact: (contactId) => {
-				fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {
+			editContact: (contact) => {
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${contact.id}`, {
 					method: "PUT",
+					body: JSON.stringify({
+						"full_name": contact.fullName,
+						"email": contact.email,
+						"agenda_slug": contact.user,
+						"address": contact.address,
+						"phone": contact.phone
+					}),
+
 					headers: {
 						"Content-Type": "application/json"
 					}

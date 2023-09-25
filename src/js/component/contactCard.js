@@ -17,10 +17,18 @@ export const ContactCard = (props) => {
 		navigate("/contacts")
 	}
 
-	const handleEdit = (event) => {
+	const edit = (event) => {
 		event.preventDefault()
-		actions.editContact(props.info.id)
-		navigate("/editContact")
+		navigate("/editContact", 
+				{
+					state: {
+						"fullName": props.info.full_name, 
+						"id": props.info.id, 
+						"address": props.info.address, 
+						"phone": props.info.phone,
+						"email": props.info.email,
+					}
+				});
 	}
 
 	return (
@@ -35,7 +43,7 @@ export const ContactCard = (props) => {
 				</div>
 
 				<div className="d-flex justify-space-between">
-					<button className="btn opacity-50"> <FontAwesomeIcon className="me-1" icon={faPencil} /> </button>
+					<button className="btn opacity-50" onClick={edit}> <FontAwesomeIcon className="me-1" icon={faPencil} /> </button>
 					<button className="btn opacity-50" onClick={handleDelete}> <FontAwesomeIcon className="me-1" icon={faTrash} /> </button>
 				</div>
 			</div>
