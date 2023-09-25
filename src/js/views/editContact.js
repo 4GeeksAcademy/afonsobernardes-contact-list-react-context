@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export const EditContact = () => {
     const { store, actions } = useContext(Context);
@@ -30,30 +30,30 @@ export const EditContact = () => {
                 <form className="border border-2 border-dark-subtle rounded-2 p-3">
 
                     <div className="mb-3">
-                        <label htmlFor="fullName" value={fullName} className="form-label">Full Name</label>
-                        <input type="text" className="form-control" id="fullName" onChange={(e) => setFullName(e.target.value)} placeholder="Enter your full name." aria-describedby="nameHelp" />
+                        <label htmlFor="fullName" className="form-label">Full Name</label>
+                        <input type="text" className="form-control" id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter your full name." aria-describedby="nameHelp" />
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="emailAddress" value={email} className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="emailAddress" onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address." aria-describedby="emailHelp" />
+                        <label htmlFor="emailAddress" className="form-label">Email address</label>
+                        <input type="email" className="form-control" id="emailAddress" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address." aria-describedby="emailHelp" />
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="phoneNumber" value={phone} className="form-label">Phone</label>
-                        <input type="text" className="form-control" onChange={(e) => setPhone(e.target.value)} placeholder="Enter your phone number." id="phoneNumber" />
+                        <label htmlFor="phoneNumber" className="form-label">Phone</label>
+                        <input type="text" className="form-control" id="phoneNumber" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Enter your phone number." />
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="physicalAddress" value={address} className="form-label">Address</label>
-                        <input type="text" className="form-control" onChange={(e) => setAddress(e.target.value)} placeholder="Enter your physical address." id="physicalAddress" />
+                        <label htmlFor="physicalAddress" className="form-label">Address</label>
+                        <input type="text" className="form-control" id="physicalAddress" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Enter your physical address." />
                     </div>
 
                     
                     <button className="btn btn-primary w-100" onClick={handleSubmit}>Save</button>
                     
-                
                 </form>
+                <Link to="/contacts">Go back to contacts.</Link>
             </div>
         </div>
 

@@ -51,6 +51,7 @@ export const AddContact = () => {
                     
                 
                 </form>
+                <Link to="/contacts">Go back to contacts.</Link>
             </div>
         </div>
 
