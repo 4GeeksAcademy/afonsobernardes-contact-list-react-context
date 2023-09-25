@@ -42,6 +42,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
+				.then(getActions().loadContacts(getStore().currentUser))
+				.then(console.log(getStore().contacts));
 			},
 
 			// Delete a contact from user's list.
@@ -53,6 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 				.then(getActions().loadContacts(getStore().currentUser))
+				.then(console.log(getStore().contacts))
 				
 			},
 		}

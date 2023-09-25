@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,12 +10,13 @@ export const AddContact = () => {
     const [phone, setPhone] = useState()
     const [address, setAddress] = useState()
 
+
     const navigate = useNavigate()
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        let response = actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})
-        console.log(response)
+        actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})
+        navigate("/contacts")
     }
 
     return (
@@ -48,8 +49,7 @@ export const AddContact = () => {
                     
                     <button className="btn btn-primary w-100" onClick={handleSubmit}>Save</button>
                     
-                    
-                    
+                
                 </form>
             </div>
         </div>
