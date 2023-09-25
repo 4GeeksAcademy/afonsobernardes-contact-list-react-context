@@ -14,8 +14,8 @@ export const AddContact = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})
-        navigate("./contacts")
+        let response = actions.addContact({"fullName": fullName, "email": email, "phone": phone, "address": address, "user": store.currentUser})
+        console.log(response)
     }
 
     return (
@@ -46,7 +46,7 @@ export const AddContact = () => {
                     </div>
 
                     
-                    <button type="submit" className="btn btn-primary w-100" onSubmit={handleSubmit}>Save</button>
+                    <button className="btn btn-primary w-100" onClick={handleSubmit}>Save</button>
                     
                     
                     

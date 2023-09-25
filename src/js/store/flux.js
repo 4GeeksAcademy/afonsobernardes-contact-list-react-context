@@ -28,34 +28,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// Add new contact to currentUser's contacts.
 			addContact: (newContact) => {
-				fetch(`https://playground.4geeks.com/apis/fake/contact`, 
-					{
-						method: "POST",
-						body: JSON.stringify({
-							"full_name": newContact.fullName,
-							"email": newContact.email,
-							"agenda_slug": newContact.user,
-							"address": newContact.address,
-							"phone": newContact.phone
-						}),
+				fetch(`https://playground.4geeks.com/apis/fake/contact`, {
+					method: "POST",
+					body: JSON.stringify({
+						"full_name": newContact.fullName,
+						"email": newContact.email,
+						"agenda_slug": newContact.user,
+						"address": newContact.address,
+						"phone": newContact.phone
+					}),
 
-						headers: {
+					headers: {
 						"Content-Type": "application/json"
-						}
-				});
-				getActions().loadContacts(getStore().currentUser)
+					}
+				})
 			},
 
 			// Delete a contact from user's list.
 			deleteContact: (contactId) => {
-				fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, 
-					{
-						method: "DELETE",
-						headers: {
-							"Content-Type": "application/json"
-						}
-				});
-				getActions().loadContacts(getStore().currentUser)
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+				.then(getActions().loadContacts(getStore().currentUser))
+				
 			},
 		}
 	};
